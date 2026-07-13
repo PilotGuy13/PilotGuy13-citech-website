@@ -377,6 +377,18 @@
     section { padding: 2.25rem 2rem; }
     .hero { padding: 7rem 2rem 2rem; }
     @media (max-width: 768px) { section { padding: 1.75rem 1.25rem; } .hero { padding: 6.5rem 1.5rem 1.5rem; } }
+  
+    /* ── Fold-out contact form (13 Jul 2026) ── */
+    .contact-toggle { display: inline-block; margin-top: 1.2rem; background: var(--accent, #2dd4bf); color: #04211b; font-weight: 700; border: none; border-radius: 8px; padding: 0.75rem 1.4rem; font-size: 0.95rem; cursor: pointer; }
+    .contact-toggle:hover, .contact-send:hover { opacity: 0.88; }
+    .contact-form { display: none; text-align: left; margin-top: 1.2rem; }
+    .contact-form.open { display: block; animation: cfFade 0.25s ease; }
+    @keyframes cfFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .contact-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.9rem; }
+    .contact-form input, .contact-form textarea { display: block; width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: inherit; font: inherit; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent, #2dd4bf); border-color: transparent; }
+    .contact-send { background: var(--accent, #2dd4bf); color: #04211b; font-weight: 700; border: none; border-radius: 8px; padding: 0.75rem 1.6rem; cursor: pointer; font-size: 0.95rem; }
+    .contact-note { font-size: 0.75rem; opacity: 0.6; margin-top: 0.6rem; }
   </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
@@ -455,7 +467,15 @@
         <div class="contact-box">
             <h3>Partnerships & enquiries</h3>
             <p>We're open to conversations with enterprise partners, API integrators, recruitment platforms, and anyone building in the career technology space.</p>
-            <a href="mailto:hello@citechnologies.io" class="contact-email">hello@citechnologies.io</a>
+            <button class="contact-toggle" id="contactToggleBtn" onclick="toggleContactForm()">&#9993;&nbsp; Send us a message</button>
+                <div class="contact-form" id="contactForm">
+                    <label>Your name<input type="text" id="cfName" autocomplete="name"></label>
+                    <label>Your email<input type="email" id="cfEmail" autocomplete="email"></label>
+                    <label>Subject<input type="text" id="cfSubject" value="Enquiry via citechnologies.io"></label>
+                    <label>Message<textarea id="cfMessage" rows="5" placeholder="Tell us a little about what you have in mind..."></textarea></label>
+                    <button class="contact-send" onclick="sendContactForm()">Send message &rarr;</button>
+                    <p class="contact-note">Opens in your email app &mdash; nothing is stored on this site.</p>
+                </div>
         </div>
     </section>
 
@@ -464,5 +484,23 @@
         <div class="footer-location">Wellington, New Zealand</div>
     </footer>
 
+<script>
+function toggleContactForm() {
+  var f = document.getElementById('contactForm');
+  var open = f.classList.toggle('open');
+  document.getElementById('contactToggleBtn').innerHTML = open ? '&#10005;&nbsp; Close form' : '&#9993;&nbsp; Send us a message';
+}
+function sendContactForm() {
+  var a = ['hello', 'citechnologies', 'io'];            /* assembled at runtime - not scrapable */
+  var addr = a[0] + '@' + a[1] + '.' + a[2];
+  var n = document.getElementById('cfName').value.trim();
+  var e = document.getElementById('cfEmail').value.trim();
+  var su = document.getElementById('cfSubject').value.trim() || 'Enquiry';
+  var m = document.getElementById('cfMessage').value.trim();
+  if (!m) { alert('Please write a message first.'); return; }
+  var body = m + '\n\n---\nFrom: ' + (n || '(no name given)') + (e ? ' <' + e + '>' : '');
+  window.location.href = 'mailto:' + addr + '?subject=' + encodeURIComponent(su) + '&body=' + encodeURIComponent(body);
+}
+</script>
 </body>
 </html>
