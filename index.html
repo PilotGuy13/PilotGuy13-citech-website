@@ -371,6 +371,12 @@
     .logo img { max-width: 100%; }
     @media (max-width: 768px) { .logo img { height: 42px; } }
     @media (max-width: 480px) { .nav-links { display: flex; gap: 1rem; } .logo img { height: 32px; } }
+  
+    /* ── Polish pass (13 Jul 2026): centre contact box, tighter section rhythm ── */
+    .contact-box { margin-left: auto; margin-right: auto; }
+    section { padding: 2.25rem 2rem; }
+    .hero { padding: 4rem 2rem 2rem; }
+    @media (max-width: 768px) { section { padding: 1.75rem 1.25rem; } .hero { padding: 3rem 1.5rem 1.5rem; } }
   </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
@@ -454,8 +460,7 @@
     </section>
 
     <footer>
-        <img src="assets/cit_northstar_lockup_dark.svg" alt="Career Intelligence Technologies Ltd" style="height:56px;display:block;margin:0 auto 1.2rem">
-      <div class="footer-company">&copy; 2026 Career Intelligence Technologies Ltd</div>
+        <div class="footer-company">&copy; 2026 Career Intelligence Technologies Ltd</div>
         <div class="footer-location">Wellington, New Zealand</div>
     </footer>
 
