@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 224" width="860" height="224">
+  <defs>
+    <linearGradient id="vi7" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0 51.7) scale(0.538)">
+    <rect x="0" y="8" width="208" height="208" rx="48" fill="#141221" stroke="#3f3f5a" stroke-width="4"/>
+    <ellipse cx="104" cy="115" rx="76" ry="31" fill="none" stroke="#3f3f5a" stroke-width="6" transform="rotate(-24 104 115)"/>
+    <path d="M 104 39 C 109 78 114 83 153 88 C 114 93 109 98 104 137 C 99 98 94 93 55 88 C 94 83 99 78 104 39 Z" fill="url(#vi7)"/>
+    <circle cx="160" cy="91" r="11" fill="#facc15"/>
+  </g>
+  <text x="136" y="99" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" fill="#f5f3ff" letter-spacing="3">CAREER INTELLIGENCE</text>
+  <text x="136" y="159" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" fill="#8b85a8" letter-spacing="3">TECHNOLOGIES LTD</text>
+</svg>
