@@ -394,6 +394,16 @@
        OrgCheck = teal/green; JHA = blue. Buttons: white text on violet. ── */
     body { background: #070b16; }
     .hero-cta, .contact-toggle, .contact-send { color: #ffffff; }
+  
+    /* ── Two-column top hero (JobHunterApp-style, 13 Jul 2026) ── */
+    .top-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto; padding: 5.5rem 2rem 2.5rem; align-items: stretch; }
+    .top-hero-left { background: rgba(30,32,38,0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+    .top-hero-left .section-desc { max-width: none; margin-bottom: 0; }
+    .top-hero-right { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .top-hero-right h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 3.4vw, 3.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .top-hero-right p { font-size: 1.05rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem; line-height: 1.7; }
+    @media (max-width: 768px) { .top-hero { grid-template-columns: 1fr; padding-top: 5rem; } }
+  
   </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
@@ -408,18 +418,20 @@
         </ul>
     </nav>
 
-    <div class="hero">
-        
-        <h1>Intelligent technology for the future of work</h1>
-        <p>We build AI-powered platforms that transform how people find careers & how organisations discover talent — across 73 countries & growing.</p>
-        <a href="#products" class="hero-cta">Explore our platforms</a>
+    <div class="top-hero">
+        <div class="top-hero-left">
+            <div class="section-label">Who we are</div>
+            <h2 class="section-title">AI meets career intelligence</h2>
+            <p class="section-desc">Career Intelligence Technologies Ltd is a New Zealand-based technology company building the next generation of AI-driven career and recruitment platforms. Our systems process millions of job listings globally, using advanced language models to match, score, and generate actionable career intelligence.</p>
+        </div>
+        <div class="top-hero-right">
+            <h1>Intelligent technology for the future of work</h1>
+            <p>We build AI-powered platforms that transform how people find careers &amp; how organisations discover talent — across 73 countries &amp; growing.</p>
+            <a href="#products" class="hero-cta">Explore our platforms</a>
+        </div>
     </div>
 
     <section id="about">
-        <div class="section-label">Who we are</div>
-        <h2 class="section-title">AI meets career intelligence</h2>
-        <p class="section-desc">Career Intelligence Technologies Ltd is a New Zealand-based technology company building the next generation of AI-driven career and recruitment platforms. Our systems process millions of job listings globally, using advanced language models to match, score, and generate actionable career intelligence.</p>
-
         <div class="about-grid">
             <div class="about-card">
                 <h3>Global reach</h3>
