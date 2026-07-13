@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 160" width="1320" height="160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="900" height="160">
   <defs>
     <linearGradient id="vi8" x1="0" y1="1" x2="1" y2="0">
       <stop offset="0" stop-color="#7c3aed"/>
@@ -12,6 +12,6 @@
     <circle cx="170" cy="92" r="11" fill="#facc15"/>
   </g>
   <text x="176" y="96" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="3">
-    <tspan fill="#f5f3ff">CAREER INTELLIGENCE TECHNOLOGIES</tspan><tspan fill="#8b85a8"> LTD</tspan>
+    <tspan fill="#f5f3ff">C.I. TECHNOLOGIES</tspan><tspan fill="#8b85a8"> LTD</tspan>
   </text>
 </svg>
