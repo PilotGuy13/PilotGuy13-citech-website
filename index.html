@@ -282,7 +282,7 @@
         }
 
         /* ── CONTACT ── */
-        #contact { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+        #contact { border-top: 1px solid rgba(255, 255, 255, 0.04); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 940px; }
 
         .contact-box {
             background: var(--deep-blue);
@@ -349,7 +349,7 @@
             nav { padding: 1rem 1.25rem; }
             .nav-links { gap: 1.25rem; }
             .nav-links a { font-size: 0.8rem; }
-            .about-grid, .product-cards { grid-template-columns: 1fr; }
+            .about-grid, .product-cards, #contact { grid-template-columns: 1fr; }
             section { padding: 2.5rem 1.5rem; }
             .contact-box { padding: 1.5rem; }
         }
@@ -464,10 +464,10 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact"><div class="contact-intro">
         <div class="section-label">Get in touch</div>
         <h2 class="section-title">Let's talk</h2>
-        <p class="section-desc">Whether you're interested in API partnerships, enterprise licensing, or just want to learn more about what we're building.</p>
+        <p class="section-desc">Whether you're interested in API partnerships, enterprise licensing, or just want to learn more about what we're building.</p></div>
 
         <div class="contact-box">
             <h3>Partnerships & enquiries</h3>
