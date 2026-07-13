@@ -364,7 +364,14 @@
             html { scroll-behavior: auto; }
             .product-card:hover, .hero-cta:hover { transform: none; }
         }
-    </style>
+    
+    /* ── Nav wrap fix + responsive lockup (13 Jul 2026) ── */
+    nav { flex-wrap: wrap; row-gap: 0.5rem; }
+    .nav-links { flex-wrap: wrap; row-gap: 0.4rem; }
+    .logo img { max-width: 100%; }
+    @media (max-width: 768px) { .logo img { height: 42px; } }
+    @media (max-width: 480px) { .nav-links { display: flex; gap: 1rem; } .logo img { height: 32px; } }
+  </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
 <body>
