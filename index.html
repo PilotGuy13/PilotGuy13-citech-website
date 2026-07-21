@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Intelligence Technologies — Intelligent Technology for the Future of Work</title>
     <meta name="description" content="Career Intelligence Technologies Ltd — building AI-powered platforms that transform how people find work and how organisations find talent. Wellington, New Zealand.">
+
+    <!-- Social sharing (#6) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://citechnologies.io/">
+    <meta property="og:site_name" content="Career Intelligence Technologies">
+    <meta property="og:title" content="Career Intelligence Technologies — Intelligent Technology for the Future of Work">
+    <meta property="og:description" content="AI-powered platforms that transform how people find careers and how organisations discover talent — across 73 countries and growing.">
+    <meta property="og:image" content="https://citechnologies.io/assets/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Career Intelligence Technologies — intelligent technology for the future of work">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Career Intelligence Technologies — Intelligent Technology for the Future of Work">
+    <meta name="twitter:description" content="AI-powered platforms that transform how people find careers and how organisations discover talent — across 73 countries and growing.">
+    <meta name="twitter:image" content="https://citechnologies.io/assets/og-card.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,14 +28,20 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --midnight: #0B1226;
+            /* Family palette: CIT = violet (North Star), darkest canvas of the family.
+               OrgCheck = teal/green; JHA = blue. */
+            --midnight: #070b16;
             --deep-blue: #131D3B;
             --slate: #1E2A4A;
             --accent: #8b5cf6;
+            /* Buttons use a darker violet so white label text clears WCAG AA (#3).
+               --accent at 4.23:1 fails; --accent-strong reaches 5.3:1. */
+            --accent-strong: #7c3aed;
             --accent-glow: rgba(139, 92, 246, 0.18);
             --text-primary: #F0F2F8;
             --text-secondary: #8A94B0;
-            --text-muted: #5C6580;
+            /* Lightened from #5C6580 (3.4:1) to clear AA on the darker canvas (#4). */
+            --text-muted: #7A85A3;
             --white: #FFFFFF;
         }
 
@@ -42,6 +64,8 @@
             z-index: 100;
             padding: 0.75rem 2rem;
             display: flex;
+            flex-wrap: wrap;
+            row-gap: 0.5rem;
             align-items: center;
             justify-content: space-between;
             background: rgba(30, 32, 38, 0.95);
@@ -63,8 +87,9 @@
         }
 
         .logo .io { color: var(--accent); }
+        .logo img { max-width: 100%; }
 
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 1.5rem; row-gap: 0.4rem; list-style: none; }
 
         .nav-links a {
             color: var(--text-secondary);
@@ -76,63 +101,12 @@
 
         .nav-links a:hover { color: var(--accent); }
 
-        /* ── HERO ── */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-label {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            max-width: 780px;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
+        /* ── HERO CTA ── */
         .hero-cta {
             display: inline-block;
             padding: 0.85rem 2rem;
-            background: var(--accent);
-            color: var(--midnight);
+            background: var(--accent-strong);
+            color: var(--white);
             font-weight: 600;
             font-size: 0.95rem;
             border-radius: 6px;
@@ -147,7 +121,7 @@
 
         /* ── SECTION SHARED ── */
         section {
-            padding: 3rem 2rem;
+            padding: 1.25rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -294,6 +268,8 @@
             padding: 2rem;
             text-align: center;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-box h3 {
@@ -308,23 +284,6 @@
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
             line-height: 1.65;
-        }
-
-        .contact-email {
-            display: inline-block;
-            padding: 0.75rem 1.75rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .contact-email:hover {
-            background: var(--accent);
-            color: var(--midnight);
         }
 
         /* ── FOOTER ── */
@@ -342,24 +301,144 @@
             margin-bottom: 0.35rem;
         }
 
-        .footer-location {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        /* ── TOP HERO (two-column) ── */
+        .top-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5.5rem 2rem 1.5rem;
+            align-items: stretch;
         }
 
+        /* The h1 column is first in the DOM so the heading outline reads h1 → h2 (#5);
+           `order` restores the intended layout — intro left, lead right on desktop, and
+           intro-then-lead when the grid collapses to one column on mobile. */
+        .top-hero-intro { order: 1; }
+        .top-hero-lead { order: 2; }
+
+        .top-hero-intro {
+            background: rgba(30, 32, 38, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .top-hero-intro .section-desc { max-width: none; margin-bottom: 0; }
+
+        .top-hero-lead {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-hero-lead h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .top-hero-lead p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ── CONTACT FORM ── */
+        .contact-toggle {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: var(--accent-strong);
+            color: var(--white);
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.4rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .contact-toggle:hover, .contact-send:hover { opacity: 0.88; }
+
+        .contact-form { display: none; text-align: left; margin-top: 1.2rem; }
+        .contact-form.open { display: block; animation: cfFade 0.25s ease; }
+
+        @keyframes cfFade {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-top: 0.35rem;
+            padding: 0.65rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: inherit;
+            font: inherit;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        .contact-send {
+            background: var(--accent-strong);
+            color: var(--white);
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.6rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .contact-note { font-size: 0.75rem; opacity: 0.6; margin-top: 0.6rem; }
+
         /* ── RESPONSIVE ── */
+        @media (min-width: 769px) and (max-width: 900px) {
+            .logo { font-size: 1.25rem; }
+            .nav-links a { font-size: 1.05rem; }
+        }
+
         @media (max-width: 768px) {
             nav { padding: 1rem 1.25rem; }
             .nav-links { gap: 1.25rem; }
             .nav-links a { font-size: 0.8rem; }
+            .logo { font-size: 1.1rem; }
+            .logo img { height: 42px; }
             .about-grid, .product-cards, #contact { grid-template-columns: 1fr; }
-            section { padding: 2.5rem 1.5rem; }
+            .top-hero { grid-template-columns: 1fr; padding-top: 5rem; }
+            section { padding: 1.75rem 1.25rem; }
             .contact-box { padding: 1.5rem; }
         }
 
         @media (max-width: 480px) {
-            .nav-links { display: none; }
-            .hero { padding: 5rem 1.5rem 2rem; }
+            .nav-links { gap: 1rem; }
+            .logo { font-size: 0.95rem; }
+            .logo img { height: 32px; }
         }
 
         /* ── REDUCED MOTION ── */
@@ -367,53 +446,7 @@
             html { scroll-behavior: auto; }
             .product-card:hover, .hero-cta:hover { transform: none; }
         }
-    
-    /* ── Nav wrap fix + responsive lockup (13 Jul 2026) ── */
-    nav { flex-wrap: wrap; row-gap: 0.5rem; }
-    .nav-links { flex-wrap: wrap; row-gap: 0.4rem; }
-    .logo img { max-width: 100%; }
-    @media (max-width: 768px) { .logo img { height: 42px; } }
-    @media (max-width: 480px) { .nav-links { display: flex; gap: 1rem; } .logo img { height: 32px; } }
-  
-    /* ── Polish pass (13 Jul 2026): centre contact box, tighter section rhythm ── */
-    .contact-box { margin-left: auto; margin-right: auto; }
-    section { padding: 1.25rem 2rem; }
-    .hero { padding: 7rem 2rem 2rem; }
-    @media (max-width: 768px) { section { padding: 1.75rem 1.25rem; } .hero { padding: 6.5rem 1.5rem 1.5rem; } }
-  
-    /* ── Fold-out contact form (13 Jul 2026) ── */
-    .contact-toggle { display: inline-block; margin-top: 1.2rem; background: var(--accent, #8b5cf6); color: #ffffff; font-weight: 700; border: none; border-radius: 8px; padding: 0.75rem 1.4rem; font-size: 0.95rem; cursor: pointer; }
-    .contact-toggle:hover, .contact-send:hover { opacity: 0.88; }
-    .contact-form { display: none; text-align: left; margin-top: 1.2rem; }
-    .contact-form.open { display: block; animation: cfFade 0.25s ease; }
-    @keyframes cfFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
-    .contact-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.9rem; }
-    .contact-form input, .contact-form textarea { display: block; width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: inherit; font: inherit; }
-    .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent, #8b5cf6); border-color: transparent; }
-    .contact-send { background: var(--accent, #8b5cf6); color: #ffffff; font-weight: 700; border: none; border-radius: 8px; padding: 0.75rem 1.6rem; cursor: pointer; font-size: 0.95rem; }
-    .contact-note { font-size: 0.75rem; opacity: 0.6; margin-top: 0.6rem; }
-  
-    /* ── Family palette (13 Jul 2026): CIT = violet (North Star), darkest canvas of the family;
-       OrgCheck = teal/green; JHA = blue. Buttons: white text on violet. ── */
-    body { background: #070b16; }
-    .hero-cta, .contact-toggle, .contact-send { color: #ffffff; }
-  
-    /* ── Two-column top hero (JobHunterApp-style, 13 Jul 2026) ── */
-    .top-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto; padding: 5.5rem 2rem 1.5rem; align-items: stretch; }
-    .top-hero-left { background: rgba(30,32,38,0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: center; }
-    .top-hero-left .section-desc { max-width: none; margin-bottom: 0; }
-    .top-hero-right { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .top-hero-right h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 3.4vw, 3.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
-    .top-hero-right p { font-size: 1.05rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem; line-height: 1.7; }
-    @media (max-width: 768px) { .top-hero { grid-template-columns: 1fr; padding-top: 5rem; } }
-  
-  
-    /* ── Nav fit on narrow screens (14 Jul 2026): shrink wordmark/links so Contact stays 2rem from the edge ── */
-    @media (min-width: 769px) and (max-width: 900px) { .logo { font-size: 1.25rem; } .nav-links a { font-size: 1.05rem; } }
-    @media (max-width: 768px) { .logo { font-size: 1.1rem; } }
-    @media (max-width: 480px) { .logo { font-size: 0.95rem; } }
-  
-  </style>
+    </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
 <body>
@@ -428,15 +461,15 @@
     </nav>
 
     <div class="top-hero">
-        <div class="top-hero-left">
-            <div class="section-label">Who we are</div>
-            <h2 class="section-title">AI meets career intelligence</h2>
-            <p class="section-desc">Career Intelligence Technologies Ltd is a New Zealand-based technology company building the next generation of AI-driven career and recruitment platforms. Our systems process millions of job listings globally, using advanced language models to match, score, and generate actionable career intelligence.</p>
-        </div>
-        <div class="top-hero-right">
+        <div class="top-hero-lead">
             <h1>Intelligent technology for the future of work</h1>
             <p>We build AI-powered platforms that transform how people find careers &amp; how organisations discover talent — across 73 countries &amp; growing.</p>
             <a href="#products" class="hero-cta">Explore our platforms</a>
+        </div>
+        <div class="top-hero-intro">
+            <div class="section-label">Who we are</div>
+            <h2 class="section-title">AI meets career intelligence</h2>
+            <p class="section-desc">Career Intelligence Technologies Ltd is a New Zealand-based technology company building the next generation of AI-driven career and recruitment platforms. Our systems process millions of job listings globally, using advanced language models to match, score, and generate actionable career intelligence.</p>
         </div>
     </div>
 
@@ -493,15 +526,15 @@
         <div class="contact-box">
             <h3>Partnerships & enquiries</h3>
             <p>We're open to conversations with enterprise partners, API integrators, recruitment platforms, and anyone building in the career technology space.</p>
-            <button class="contact-toggle" id="contactToggleBtn" onclick="toggleContactForm()">&#9993;&nbsp; Send us a message</button>
-                <div class="contact-form" id="contactForm">
-                    <label>Your name<input type="text" id="cfName" autocomplete="name"></label>
-                    <label>Your email<input type="email" id="cfEmail" autocomplete="email"></label>
-                    <label>Subject<input type="text" id="cfSubject" value="Enquiry via citechnologies.io"></label>
-                    <label>Message<textarea id="cfMessage" rows="5" placeholder="Tell us a little about what you have in mind..."></textarea></label>
-                    <button class="contact-send" id="cfSendBtn" onclick="sendContactForm()">Send message &rarr;</button>
-                    <p class="contact-note" id="cfStatus">Goes straight to our team &mdash; nothing else is stored.</p>
-                </div>
+            <button class="contact-toggle" id="contactToggleBtn" type="button" aria-expanded="false" aria-controls="contactForm">&#9993;&nbsp; Send us a message</button>
+                <form class="contact-form" id="contactForm">
+                    <label>Your name<input type="text" id="cfName" name="name" autocomplete="name"></label>
+                    <label>Your email<input type="email" id="cfEmail" name="email" autocomplete="email" required></label>
+                    <label>Subject<input type="text" id="cfSubject" name="subject" value="Enquiry via citechnologies.io"></label>
+                    <label>Message<textarea id="cfMessage" name="message" rows="5" required placeholder="Tell us a little about what you have in mind..."></textarea></label>
+                    <button class="contact-send" id="cfSendBtn" type="submit">Send message &rarr;</button>
+                    <p class="contact-note" id="cfStatus" role="status" aria-live="polite">Goes straight to our team &mdash; nothing else is stored.</p>
+                </form>
         </div>
     </section>
 
@@ -510,25 +543,46 @@
     </footer>
 
 <script>
-function toggleContactForm() {
-  var f = document.getElementById('contactForm');
-  var open = f.classList.toggle('open');
-  document.getElementById('contactToggleBtn').innerHTML = open ? '&#10005;&nbsp; Close form' : '&#9993;&nbsp; Send us a message';
-}
-function sendContactForm() {
-  var g = function(i){ return document.getElementById(i); };
-  var n = g('cfName').value.trim(), e = g('cfEmail').value.trim(), su = g('cfSubject').value.trim() || 'Enquiry', m = g('cfMessage').value.trim(), st = g('cfStatus'), b = g('cfSendBtn');
-  if (!m) { st.textContent = 'Please write a message first.'; return; }
-  if (!e) { st.textContent = 'Please include your email so we can reply.'; return; }
-  b.disabled = true; b.textContent = 'Sending...';
-  fetch('https://formspree.io/f/maqrynvo', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ name: n, email: e, _subject: su, message: m }) }).then(function(r) {
-    if (!r.ok) throw 0;
-    st.textContent = 'Thanks - your message is on its way. We normally reply within one business day.';
-    b.textContent = 'Sent'; g('cfName').value = ''; g('cfEmail').value = ''; g('cfMessage').value = '';
-  }).catch(function() {
-    b.disabled = false; b.textContent = 'Send message'; st.textContent = 'Something went wrong - please try again shortly.';
+(function () {
+  var g = function (i) { return document.getElementById(i); };
+  var form = g('contactForm'), toggle = g('contactToggleBtn');
+
+  toggle.addEventListener('click', function () {
+    var open = form.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.innerHTML = open ? '&#10005;&nbsp; Close form' : '&#9993;&nbsp; Send us a message';
+    if (open) g('cfName').focus();
   });
-}
+
+  // Submit rather than click, so Enter in any field works and the browser runs
+  // native validation on `required` and `type="email"` first (#1).
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+
+    var n = g('cfName').value.trim(), e = g('cfEmail').value.trim(),
+        su = g('cfSubject').value.trim() || 'Enquiry',
+        m = g('cfMessage').value.trim(), st = g('cfStatus'), b = g('cfSendBtn');
+
+    // Backstop for browsers that skip constraint validation.
+    if (!m) { st.textContent = 'Please write a message first.'; g('cfMessage').focus(); return; }
+    if (!e) { st.textContent = 'Please include your email so we can reply.'; g('cfEmail').focus(); return; }
+
+    b.disabled = true; b.textContent = 'Sending...';
+    fetch('https://formspree.io/f/maqrynvo', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: n, email: e, _subject: su, message: m })
+    }).then(function (r) {
+      if (!r.ok) throw 0;
+      st.textContent = 'Thanks - your message is on its way. We normally reply within one business day.';
+      b.textContent = 'Sent';
+      g('cfName').value = ''; g('cfEmail').value = ''; g('cfMessage').value = '';
+    }).catch(function () {
+      b.disabled = false; b.textContent = 'Send message';
+      st.textContent = 'Something went wrong - please try again shortly.';
+    });
+  });
+})();
 </script>
 </body>
 </html>
