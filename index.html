@@ -28,15 +28,20 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Family palette: CIT = violet (North Star), darkest canvas of the family.
-               OrgCheck = teal/green; JHA = blue. */
+            /* Family palette: CIT = violet (North Star), darkest canvas of the
+               family. Sibling products carry their own hues. */
             --midnight: #070b16;
             --deep-blue: #131D3B;
             --slate: #1E2A4A;
+            /* Three violets, because one cannot serve every role at AA:
+               --accent        decorative only — glows, borders, focus rings
+               --accent-strong button fills; white label text clears AA at 5.3:1
+               --accent-text   violet TEXT on the lifted card backgrounds, where
+                               --accent only reaches 3.3-3.9:1. This one holds
+                               5.2:1 against the worst of them. */
             --accent: #8b5cf6;
-            /* Buttons use a darker violet so white label text clears WCAG AA (#3).
-               --accent at 4.23:1 fails; --accent-strong reaches 5.3:1. */
             --accent-strong: #7c3aed;
+            --accent-text: #a78bfa;
             --accent-glow: rgba(139, 92, 246, 0.18);
             --text-primary: #F0F2F8;
             --text-secondary: #8A94B0;
@@ -99,7 +104,7 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: var(--accent-text); }
 
         /* ── HERO CTA ── */
         .hero-cta {
@@ -126,13 +131,17 @@
             margin: 0 auto;
         }
 
+        /* Anchor targets must clear the fixed nav, or the top of the section
+           lands underneath it when jumped to. */
+        section { scroll-margin-top: 92px; }
+
         .section-label {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--accent-text);
             margin-bottom: 1rem;
         }
 
@@ -183,13 +192,16 @@
             line-height: 1.65;
         }
 
+
         /* ── PRODUCTS ── */
         #products { border-top: 1px solid rgba(255, 255, 255, 0.04); }
 
+        /* auto-fit rather than a fixed count, so three cards reflow to two and
+           then one as the window narrows, without extra breakpoints. */
         .product-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
         }
 
         .product-card {
@@ -218,13 +230,23 @@
 
         .badge-live {
             background: rgba(139, 92, 246, 0.14);
-            color: var(--accent);
+            color: var(--accent-text);
         }
 
         .badge-coming {
             background: rgba(138, 148, 176, 0.12);
             color: var(--text-secondary);
         }
+
+        /* Dashed outline reads as "outline only" — deliberately less resolved
+           than the solid Live and Coming soon badges. */
+        .badge-stealth {
+            background: transparent;
+            border: 1px dashed rgba(167, 139, 250, 0.45);
+            color: var(--accent-text);
+        }
+
+        .product-card-stealth { border-style: dashed; }
 
         .product-card h3 {
             font-family: 'Space Grotesk', sans-serif;
@@ -242,7 +264,7 @@
         }
 
         .product-link {
-            color: var(--accent);
+            color: var(--accent-text);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
@@ -415,7 +437,17 @@
             font-size: 0.95rem;
         }
 
-        .contact-note { font-size: 0.75rem; opacity: 0.6; margin-top: 0.6rem; }
+        /* No `opacity` here — it blends the text toward the background and drops
+           contrast below AA regardless of the colour chosen. Use a real colour. */
+        .contact-note { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.6rem; }
+
+        /* Disabled-looking product link. Same reason: colour, not opacity. */
+        .product-link-muted {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: default;
+        }
 
         /* ── RESPONSIVE ── */
         @media (min-width: 769px) and (max-width: 900px) {
@@ -460,6 +492,8 @@
         </ul>
     </nav>
 
+    <main>
+
     <div class="top-hero">
         <div class="top-hero-lead">
             <h1>Intelligent technology for the future of work</h1>
@@ -492,6 +526,7 @@
                 <p>Career Intelligence Technologies embeds strict guardrails, automated threat modelling, and cryptographic privacy directly into machine learning pipelines. We deliver AI platforms with uncompromising performance and built-in Zero Trust security.</p>
             </div>
         </div>
+
     </section>
 
     <section id="products">
@@ -513,7 +548,16 @@
                 <div class="product-badge badge-coming">Coming soon</div>
                 <h3>Recruitment Intelligence</h3>
                 <p>AI-driven tools for the other side of the hiring equation — helping organisations find, screen, and engage the right talent faster. Powered by the same career intelligence engine.</p>
-                <span class="product-link" style="opacity: 0.4; cursor: default;">In development</span>
+                <span class="product-link-muted">In development</span>
+            </div>
+            <div class="product-card product-card-stealth">
+                <div class="product-badge badge-stealth">In stealth</div>
+                <h3>Third platform</h3>
+                <p>Something new is in early development — built on the same career intelligence engine, pointed somewhere we haven't talked about yet. More when we're ready to say it.</p>
+                <a href="#contact" class="product-link">
+                    Details on request
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                </a>
             </div>
         </div>
     </section>
@@ -537,6 +581,8 @@
                 </form>
         </div>
     </section>
+
+    </main>
 
     <footer>
         <div class="footer-company">&copy; 2026 Career Intelligence Technologies Ltd</div>
