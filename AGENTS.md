@@ -7,7 +7,7 @@ Static single-page marketing site (`index.html`) deployed via GitHub Pages
 
 ### Issue tracker
 
-Issues live as GitHub issues in `PilotGuy13/PilotGuy13-citech-website`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Tracked offline in `issues-export.csv` (gitignored). GitHub Issues is disabled — the repo is public. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
