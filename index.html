@@ -244,6 +244,18 @@
             background: transparent;
             border: 1px dashed rgba(167, 139, 250, 0.45);
             color: var(--accent-text);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Climbing jet. Sized in em so it tracks the badge's font-size, and
+           nudged up a hair to sit on the cap height rather than the baseline. */
+        .badge-stealth svg {
+            width: 1.15em;
+            height: 1.15em;
+            margin-top: -0.1em;
+            flex-shrink: 0;
         }
 
         .product-card-stealth { border-style: dashed; }
@@ -551,7 +563,10 @@
                 <span class="product-link-muted">In development</span>
             </div>
             <div class="product-card product-card-stealth">
-                <div class="product-badge badge-stealth">In stealth</div>
+                <div class="product-badge badge-stealth">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.8 3.2c-.9-.9-2.9-.5-4.6 1.1l-2.5 2.4-7.6-2.4-1.7 1.7 6.2 3.9-2.9 2.9-3.1-.6-1.3 1.3 3.4 1.9 1.9 3.4 1.3-1.3-.6-3.1 2.9-2.9 3.9 6.2 1.7-1.7-2.4-7.6 2.4-2.5c1.6-1.7 2-3.7 1.1-4.6z"/></svg>
+                    In stealth
+                </div>
                 <h3>Pre-flight</h3>
                 <p>Something new is in early development — built on the same career intelligence engine, pointed somewhere we haven't talked about yet. More when we're ready to say it.</p>
                 <a href="#contact" class="product-link">
