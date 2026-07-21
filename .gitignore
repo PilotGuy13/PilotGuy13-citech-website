@@ -147,3 +147,6 @@ issues-export.csv
 
 # Headshot — stays local until the bio copy is approved
 assets/john-klitgaard.jpg
+
+# Local handover notes — references the pending bio; repo is public
+HANDOVER.md
