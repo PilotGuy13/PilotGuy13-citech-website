@@ -210,6 +210,25 @@
             border-radius: 10px;
             padding: 1.75rem;
             transition: border-color 0.3s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Pin the call-to-action to the bottom of the card. Grid already makes
+           the three cards equal height, so this lines the links up with each
+           other no matter how long the copy above them runs. */
+        .product-card > .product-link,
+        .product-card > .product-link-muted {
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        /* Flex children stretch by default, which would pull these full-width.
+           Keep them sized to their own content. */
+        .product-card > .product-badge,
+        .product-card > .product-link,
+        .product-card > .product-link-muted {
+            align-self: flex-start;
         }
 
         .product-card:hover {
