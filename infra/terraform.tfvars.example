@@ -1,0 +1,6 @@
+# Copy to terraform.tfvars (gitignored) and fill in.
+subscription_id = "<your-azure-subscription-id>"
+
+# Stage B (custom domain + Cloudflare) will add:
+# cloudflare_api_token = "<Zone.DNS:Edit token for citechnologies.io>"
+# cloudflare_zone_id   = "<citechnologies.io zone id>"

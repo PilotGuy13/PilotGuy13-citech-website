@@ -150,3 +150,25 @@ assets/john-klitgaard.jpg
 
 # Local handover notes — references the pending bio; repo is public
 HANDOVER.md
+
+# Terraform (infra/) — NEVER commit state or secrets
+# Local state contains the SWA api_key (and later the Cloudflare token) in plaintext.
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.terraform.tfstate.lock.info
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+# saved plan files can embed sensitive values; local run logs
+*.tfplan
+infra/plan_out.txt
+infra/apply_out.txt
