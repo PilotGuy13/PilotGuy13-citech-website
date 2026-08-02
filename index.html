@@ -377,7 +377,7 @@
         .hero-eyebrow {
             grid-column: 1 / -1;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.01em;
             color: var(--accent-text);
@@ -385,17 +385,17 @@
             background: rgba(30, 32, 38, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 0.85rem 2rem;
+            padding: 0.55rem 2rem;
             margin: 0;
         }
 
         .top-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.85rem 2rem;
+            gap: 0.7rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 5.5rem 2rem 1.5rem;
+            padding: 2.25rem 2rem 1.25rem;
             align-items: stretch;
         }
 
@@ -409,8 +409,8 @@
             background: rgba(30, 32, 38, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
+            padding: 1.6rem 2rem;
+            text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -430,25 +430,32 @@
         }
 
         .top-hero-lead {
-            text-align: center;
+            text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
-            padding-top: 2.5rem;
+            align-items: stretch;
+            padding-top: 1.6rem;
+        }
+
+        .top-hero > .hero-cta {
+            grid-column: 1 / -1;
+            justify-self: center;
+            margin-top: 0.4rem;
         }
 
         .top-hero-lead h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+            font-size: 1.2rem;
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -0.02em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .top-hero-intro .section-title {
-            font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+            font-size: 1.2rem;
+            white-space: nowrap;
         }
 
         .top-hero-lead p {
@@ -581,12 +588,12 @@
             <h1>AI for the rest of us</h1>
             <p class="hero-lead-desc">For decades, the sharpest data and AI belonged to banks, governments and big corporations — everyone else made do with the leftovers. Career Intelligence Technologies exists to change that. We build a family of AI platforms that put institutional-grade intelligence into everyday hands, turning scattered, overwhelming data into clear, trustworthy insight you can actually use. Our technology is built off of <strong>25+ years</strong> in systems engineering, cybersecurity &amp; AI experience — across Australia, New Zealand &amp; the United States.</p>
             <p class="hero-reach">Across 73 countries &amp; growing.</p>
-            <a href="#products" class="hero-cta">Explore our platforms</a>
         </div>
         <div class="top-hero-intro">
             <h2 class="section-title">AI in the service of everyday people</h2>
             <p class="section-desc">We're a New Zealand company built on one mission: data equality — the same powerful AI that big institutions rely on, put into everyday hands. Every platform we build is one expression of it, starting where the information gap hurts people most. This is what data equality looks like — and we're only getting started.</p>
         </div>
+        <a href="#products" class="hero-cta">Explore our platforms</a>
     </div>
 
     <section id="about">
