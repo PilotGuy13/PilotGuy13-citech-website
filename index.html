@@ -377,16 +377,16 @@
         .hero-eyebrow {
             grid-column: 1 / -1;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--accent-text);
             text-align: center;
             background: rgba(30, 32, 38, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 1.1rem 2rem;
+            padding: 1.25rem 2rem;
             margin: 0;
         }
 
@@ -440,11 +440,15 @@
 
         .top-hero-lead h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 3.4vw, 3.2rem);
+            font-size: clamp(1.4rem, 2.4vw, 1.75rem);
             font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
             margin-bottom: 1rem;
+        }
+
+        .top-hero-intro .section-title {
+            font-size: clamp(1.4rem, 2.4vw, 1.75rem);
         }
 
         .top-hero-lead p {
