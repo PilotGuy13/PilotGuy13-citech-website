@@ -338,7 +338,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 2rem;
-            text-align: center;
+            text-align: left;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -374,13 +374,26 @@
         }
 
         /* ── TOP HERO (two-column) ── */
+        .hero-eyebrow {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-text);
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5.5rem 2rem 0;
+        }
+
         .top-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 5.5rem 2rem 1.5rem;
+            padding: 1.75rem 2rem 1.5rem;
             align-items: stretch;
         }
 
@@ -401,14 +414,25 @@
             justify-content: flex-start;
         }
 
-        .top-hero-intro .section-desc { max-width: none; margin-bottom: 0; }
+        .top-hero-intro .section-desc { max-width: none; margin-bottom: 0; text-align: left; }
+
+        .hero-lead-desc { align-self: stretch; max-width: none; text-align: left; }
+
+        .hero-reach {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-text);
+            margin-bottom: 1.5rem;
+        }
 
         .top-hero-lead {
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            padding-top: 2.5rem;
         }
 
         .top-hero-lead h1 {
@@ -544,18 +568,19 @@
 
     <main>
 
+    <p class="hero-eyebrow">Who we are</p>
     <div class="top-hero">
         <div class="top-hero-lead">
             <h1>AI for the rest of us</h1>
-            <p>For decades, the sharpest data and AI belonged to banks, governments and big corporations — everyone else made do with the leftovers. Career Intelligence Technologies exists to change that. We build a family of AI platforms that put institutional-grade intelligence into everyday hands, turning scattered, overwhelming data into clear, trustworthy insight you can actually use.</p>
+            <p class="hero-lead-desc">For decades, the sharpest data and AI belonged to banks, governments and big corporations — everyone else made do with the leftovers. Career Intelligence Technologies exists to change that. We build a family of AI platforms that put institutional-grade intelligence into everyday hands, turning scattered, overwhelming data into clear, trustworthy insight you can actually use.</p>
+            <p class="hero-reach">Across 73 countries &amp; growing.</p>
             <p class="credibility">Built on <strong>25+ years</strong> in systems engineering, cybersecurity &amp; AI — across Australia, New Zealand &amp; the United States.</p>
             <p class="credibility-sectors">Delivered for government, banking, energy, aviation &amp; telecommunications.</p>
             <a href="#products" class="hero-cta">Explore our platforms</a>
         </div>
         <div class="top-hero-intro">
-            <div class="section-label">Who we are</div>
             <h2 class="section-title">AI in the service of everyday people</h2>
-            <p class="section-desc">We're a New Zealand company built on one mission: data equality — the same powerful AI that big institutions rely on, put into everyday hands. Every platform we build is one expression of it, starting where the information gap hurts most: work and careers. This is what data equality looks like — and we're only getting started.</p>
+            <p class="section-desc">We're a New Zealand company built on one mission: data equality — the same powerful AI that big institutions rely on, put into everyday hands. Every platform we build is one expression of it, starting where the information gap hurts people most. This is what data equality looks like — and we're only getting started.</p>
         </div>
     </div>
 
