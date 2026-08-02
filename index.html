@@ -375,16 +375,19 @@
 
         /* ── TOP HERO (two-column) ── */
         .hero-eyebrow {
+            grid-column: 1 / -1;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--accent-text);
             text-align: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5.5rem 2rem 0;
+            background: rgba(30, 32, 38, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.1rem 2rem;
+            margin: 0;
         }
 
         .top-hero {
@@ -393,7 +396,7 @@
             gap: 2rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 1.75rem 2rem 1.5rem;
+            padding: 5.5rem 2rem 1.5rem;
             align-items: stretch;
         }
 
@@ -568,8 +571,8 @@
 
     <main>
 
-    <p class="hero-eyebrow">Who we are</p>
     <div class="top-hero">
+        <p class="hero-eyebrow">Who we are</p>
         <div class="top-hero-lead">
             <h1>AI for the rest of us</h1>
             <p class="hero-lead-desc">For decades, the sharpest data and AI belonged to banks, governments and big corporations — everyone else made do with the leftovers. Career Intelligence Technologies exists to change that. We build a family of AI platforms that put institutional-grade intelligence into everyday hands, turning scattered, overwhelming data into clear, trustworthy insight you can actually use.</p>
