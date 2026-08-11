@@ -382,7 +382,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            color: var(--accent-text);
+            color: #facc15;
             text-align: center;
             background: rgba(30, 32, 38, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -397,7 +397,7 @@
             gap: 0.7rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 4.5rem 2rem 0.4rem;
+            padding: 0.75rem 2rem 0.4rem;
             align-items: stretch;
         }
 
@@ -570,10 +570,127 @@
             html { scroll-behavior: auto; }
             .product-card:hover, .hero-cta:hover { transform: none; }
         }
+
+        /* ==================================================================
+           Graphic treatments: North Star hero glow, About-card icons,
+           product-card brand lockups. Enabled via body classes.
+           ================================================================== */
+
+        /* Keep real content above the ambient background layers */
+        nav, main, footer { position: relative; z-index: 1; }
+        .fx-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+
+        /* ---- Idea 1: "North Star" ambient hero glow ---- */
+        body:not(.fx-glow) .fx-glow-layer { display: none; }
+        .fx-glow-layer {
+            background:
+                radial-gradient(55% 42% at 50% -2%, rgba(139,92,246,0.26), transparent 70%),
+                radial-gradient(38% 30% at 82% 8%, rgba(124,58,237,0.16), transparent 70%);
+        }
+
+        /* ---- Idea 2: subtle starfield + one twinkling North Star ---- */
+        body:not(.fx-stars) .fx-stars-layer { display: none; }
+        .fx-stars-layer {
+            background-image:
+                radial-gradient(1.4px 1.4px at 12% 22%, rgba(255,255,255,0.55), transparent),
+                radial-gradient(1px 1px at 24% 38%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1.2px 1.2px at 68% 16%, rgba(255,255,255,0.45), transparent),
+                radial-gradient(1px 1px at 82% 30%, rgba(255,255,255,0.30), transparent),
+                radial-gradient(1px 1px at 46% 12%, rgba(255,255,255,0.40), transparent),
+                radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,0.30), transparent),
+                radial-gradient(1px 1px at 6% 46%, rgba(255,255,255,0.28), transparent);
+            background-repeat: no-repeat;
+            height: 60vh;
+        }
+        .fx-northstar {
+            position: fixed; top: 8%; left: 50%; width: 5px; height: 5px;
+            border-radius: 50%; background: #fff;
+            box-shadow: 0 0 8px 2px rgba(167,139,250,0.9), 0 0 20px 6px rgba(139,92,246,0.5);
+            z-index: 0; pointer-events: none;
+            animation: twinkle 3.5s ease-in-out infinite;
+        }
+        body:not(.fx-stars) .fx-northstar { display: none; }
+        @keyframes twinkle { 0%,100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+        /* ---- Idea 3: line icons on the four About cards ---- */
+        .about-card-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+        .about-card-head h3 { margin-bottom: 0; }
+        .about-icon {
+            width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: rgba(139,92,246,0.14); color: var(--accent-text);
+        }
+        .about-icon svg { width: 22px; height: 22px; }
+        body:not(.fx-icons) .about-icon { display: none; }
+
+        /* ---- Idea 4: real product logos / brand tiles on product cards ---- */
+        .product-logo {
+            width: 60px; height: 60px; border-radius: 13px; overflow: hidden;
+            margin-bottom: 1.1rem; display: flex; align-items: center;
+            justify-content: center; background: var(--slate);
+            border: 1px solid rgba(255,255,255,0.06); align-self: flex-start;
+        }
+        .product-logo img { width: 100%; height: 100%; object-fit: cover; }
+        .product-logo.mono {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: 1.5rem; color: var(--accent-text);
+            background: rgba(139,92,246,0.12);
+        }
+        .product-logo.mono svg { width: 30px; height: 30px; }
+        body:not(.fx-logos) .product-logo { display: none; }
+
+        /* JHA horizontal lockup — small, matching the live-site nav (padlock left, text right) */
+        .jha-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .jha-head .product-badge { margin-bottom: 0; }
+        .product-logo-lockup {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: #1e3a5f; border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 9px; padding: 0.3rem 0.65rem; margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+        .product-logo-lockup .pl-icon { font-size: 1.05rem; line-height: 1; }
+        .product-logo-lockup .pl-text {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 800;
+            font-size: 0.92rem; color: #fff; letter-spacing: -0.02em; white-space: nowrap;
+        }
+        body:not(.fx-logos) .product-logo-lockup { display: none; }
+
+        /* ---- Idea 5: "73 countries" global reach band ---- */
+        .reach-band {
+            display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+            justify-content: center; text-align: center;
+            margin: 0.5rem auto 0; padding: 1.75rem 2rem;
+            background: linear-gradient(135deg, rgba(19,29,59,0.9), rgba(30,42,74,0.6));
+            border: 1px solid rgba(139,92,246,0.18); border-radius: 14px;
+            max-width: 1100px;
+        }
+        body:not(.fx-reach) .reach-band { display: none; }
+        .reach-globe { flex-shrink: 0; color: var(--accent-text); opacity: 0.85; }
+        .reach-globe svg { width: 96px; height: 96px; }
+        .reach-stat { text-align: left; }
+        .reach-stat .num {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1;
+            color: var(--white); letter-spacing: -0.02em;
+        }
+        .reach-stat .num .plus { color: var(--accent-text); }
+        .reach-stat .lbl {
+            color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.3rem;
+            font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.02em;
+        }
+        .reach-sep { width: 1px; align-self: stretch; background: rgba(255,255,255,0.1); }
+
+        /* ---- "Our platforms" as a centred button-box (matches "What sets us apart"); intro centred ---- */
+        .products-cta-row { text-align: center; margin-bottom: 1.25rem; }
+        #products > .section-desc { text-align: center; margin-left: auto; margin-right: auto; max-width: 860px; text-wrap: balance; }
+
     </style>
   <link rel="icon" type="image/svg+xml" href="assets/cit_mark_dark.svg">
 </head>
-<body>
+<body class="fx-glow fx-icons fx-logos">
+
+    <!-- Ambient background layer (Idea 1) -->
+    <div class="fx-layer fx-glow-layer"></div>
 
     <nav>
         <a href="#" class="logo"><img src="assets/cit_mark_dark.svg" alt="Career Intelligence Technologies" style="height:40px;display:block"><span class="logo-text">CITechnologies<span class="io">.io</span></span></a>
@@ -596,40 +713,53 @@
             <h2 class="section-title">The Basics</h2>
             <p class="section-desc">We're a New Zealand company built on one mission: data equality — the same powerful AI that big institutions rely on, put into everyday hands. Every platform we build is one expression of it, starting where the information gap hurts people most. This is what data equality looks like — and we're only getting started. The future is looking bright — come join us.</p>
         </div>
-        <a href="#products" class="hero-cta">Explore our platforms</a>
+        <a href="#about" class="hero-cta">What sets us apart</a>
     </div>
 
     <section id="about">
         <div class="about-grid">
             <div class="about-card">
-                <h3>Private and secure by design</h3>
+                <div class="about-card-head"><div class="about-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 4.556-3.86 8.25-9 8.25S3 16.556 3 12V6.75l9-3 9 3V12Z"/></svg></div><h3>Private and secure by design</h3></div>
                 <p>Your data isn't the product. We build strict guardrails, automated threat modelling, and cryptographic privacy directly into every pipeline — Zero Trust security from the ground up, not bolted on after the fact.</p>
             </div>
             <div class="about-card">
-                <h3>The whole picture, in one place</h3>
+                <div class="about-card-head"><div class="about-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3M3.6 9h16.8M3.6 15h16.8"/></svg></div><h3>The whole picture, in one place</h3></div>
                 <p>We pull together hundreds of scattered data sources across 73 countries, so you get a single, clear view of what matters to you — instead of the fragments each institution chooses to show.</p>
             </div>
             <div class="about-card">
-                <h3>Real intelligence, not a gimmick</h3>
+                <div class="about-card-head"><div class="about-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg></div><h3>Real intelligence, not a gimmick</h3></div>
                 <p>Every platform is built around large language models from the ground up — never bolted on afterwards. That means the guidance you get actually reasons about your situation, rather than matching keywords and calling it AI.</p>
             </div>
             <div class="about-card">
-                <h3>Built to plug in anywhere</h3>
+                <div class="about-card-head"><div class="about-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z"/></svg></div><h3>Built to plug in anywhere</h3></div>
                 <p>Our intelligence is available to partners and platforms via API, so organisations can put the same power to work inside their own products — reaching the people they serve where they already are.</p>
             </div>
         </div>
 
     </section>
 
+    <div class="reach-band">
+        <div class="reach-globe"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3M3.6 9h16.8M3.6 15h16.8"/></svg></div>
+        <div class="reach-sep"></div>
+        <div class="reach-stat">
+            <div class="num">73<span class="plus">+</span></div>
+            <div class="lbl">countries reached — and growing</div>
+        </div>
+        <div class="reach-sep"></div>
+        <div class="reach-stat">
+            <div class="num">25<span class="plus">+</span></div>
+            <div class="lbl">years of systems, security &amp; AI engineering</div>
+        </div>
+    </div>
+
     <section id="products">
-        <div class="section-label">Our platforms</div>
-        <h2 class="section-title">Products & services</h2>
+        <div class="products-cta-row"><span class="hero-cta">Our platforms</span></div>
         <p class="section-desc">Each platform puts the mission to work somewhere different. We're starting with work and careers — where clear, trustworthy information changes lives most — and expanding from there.</p>
 
         <div class="product-cards">
             <div class="product-card">
                 <div class="product-badge badge-live">Live</div>
-                <h3>JobHunterApp.io</h3>
+                <div class="product-logo-lockup"><span class="pl-icon">🔒</span><span class="pl-text">AI Job Hunter</span></div>
                 <p>AI-powered career intelligence for job seekers. Aggregates listings globally, scores them against your CV, runs parallel multi-market searches, and generates tailored career documents for every match.</p>
                 <a href="https://www.jobhunterapp.io" class="product-link" target="_blank" rel="noopener">
                     Visit platform
@@ -725,5 +855,6 @@
   });
 })();
 </script>
+
 </body>
 </html>
