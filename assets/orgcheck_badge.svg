@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- OrgCheck.io badge — Concept C "Night" -->
+  <!-- Navy stays constant = recognisable brand shape; ONLY the check changes with score -->
+  <circle cx="128" cy="128" r="124" fill="#0f172a"/>
+  <circle cx="128" cy="128" r="124" fill="none" stroke="#334155" stroke-width="3"/>
+  <text x="52" y="112" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-2">Org</text>
+  <path d="M 62 158 L 108 204 L 208 84" fill="none" stroke="#22c55e" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
