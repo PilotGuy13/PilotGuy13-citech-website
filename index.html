@@ -807,12 +807,17 @@
     </main>
 
     <footer>
-        <div class="footer-company">&copy; 2026 Career Intelligence Technologies Ltd</div>
+        <div class="footer-company">&copy;<span id="footer-year">2026</span> CITechnologies Ltd</div>
     </footer>
 
 <script>
 (function () {
   var g = function (i) { return document.getElementById(i); };
+
+  // Footer copyright year — auto-rolls over on 01 Jan each year.
+  var yearEl = g('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   var form = g('contactForm'), toggle = g('contactToggleBtn');
 
   toggle.addEventListener('click', function () {
